@@ -189,11 +189,6 @@ install(FILES ${COMBINED_LIB} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(FILES common.h DESTINATION include/bcc)
 ###
 
-if(LIBBPF_FOUND)
-  target_link_libraries(bcc-shared-no-libbpf ${bcc_common_libs_for_n} ${LIBBPF_LIBRARIES})
-  install(TARGETS bcc-shared-no-libbpf LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
-endif()
-
 install(TARGETS bcc-shared bcc-static bcc-loader-static bpf-static LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(FILES ${bcc_table_headers} DESTINATION include/bcc)
 install(FILES ${bcc_api_headers} DESTINATION include/bcc)
